@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-cgh&o)nmp)cvw0)62l+d&erin74+-)rclxe5%86fpw)w)s!-s^
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['event-management-vvll.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
-CSRF_TRUSTED_ORIGINS = [ "https://event-management-vvll.onrender.com", 'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = [ "https://*/onrender.com", 'http://127.0.0.1:8000']
 
 INTERNAL_IPS = [
     # ...
@@ -107,15 +107,23 @@ WSGI_APPLICATION = 'event_management.wsgi.application'
 #         conn_max_age=600
 #     )	
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'event_management',
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'event_management',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://event_management_db_orbg_user:V4x4mGAETQNEIcUoajBnIxM7cH0i46Wo@dpg-cv7i06q3esus739nrh30-a.oregon-postgres.render.com/event_management_db_orbg',
+        conn_max_age=600
+    )
 }
 
 # Password validation
