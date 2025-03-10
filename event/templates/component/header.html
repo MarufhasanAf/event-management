@@ -1,0 +1,71 @@
+<nav class=" bg-slate-100  h-[12vh] z-50 sticky top-0  flex justify-between items-center 
+ md:mx-10 lg:mx-4 xl:mx-12 px-12">
+ {% comment %} 
+ lg:max-w-[90vw] mx-auto md:px-10 lg:px-4 xl:px-12
+{% endcomment %}
+  <h4 class="text-4xl text-red-600 font-bold" >Events</h4>
+  <div class="container mx-auto flex justify-end items-center">
+    <a class="md:hidden text-2xl font-bold text-white" href="{% url 'home' %}">EventManager</a>
+
+    <div class="hidden md:flex space-x-4 md:space-x-1.5 text-sm lg:text-lg text-sans font-semibold">
+      <a class="text-rose-600 rounded-md hover:text-gray-100 duration-300 px-4 py-2 border-2 border-rose-600 hover:bg-rose-700" href="{% url 'home' %}">Home</a>
+      <div class="relative group">
+        <button class="text-rose-600 bg-rose-200 hover:bg-rose-600 hover:text-gray-100 border-2 border-rose-600 rounded-md  duration-300 px-4 py-2">Events</button>
+        <div class="absolute left-0 hidden bg-gray-800 text-white shadow-lg group-hover:block">
+          <a class="block px-4 py-2 hover:bg-gray-700" href="{% url 'event_create' %}">Create</a>
+        </div>
+      </div>
+      <div class="relative group">
+        <button class="text-rose-600  hover:bg-rose-600 hover:text-gray-100 border-2 border-rose-600 rounded-md duration-300 px-4 py-2  w-full">Participants</button>
+        <div class="absolute left-0 hidden bg-gray-800 text-white shadow-lg group-hover:block w-full">
+          <a class="block px-4 py-2 hover:bg-gray-700 w-full" href="{% url 'participant_create' %}">Create</a>
+          <a class="block px-4 py-2 hover:bg-gray-700 w-full" href="{% url 'participant_list' %}"><i class="fas fa-list"></i> List</a>
+        </div>
+      </div>
+
+      <div class="relative group w-fit">
+        <button class="text-rose-600 hover:bg-rose-600 hover:text-gray-100 border-2 border-rose-600 rounded-md duration-300 px-4 py-2 flex items-center">Categories</button>
+        <div class="absolute left-0 hidden text-lg bg-gray-800 text-white shadow-lg group-hover:block w-full">
+          <a class="block px-4 py-2 hover:bg-gray-700 w-full" href="{% url 'category_create' %}">Create</a>
+          <a class="block px-4 py-2 hover:bg-gray-700 w-full" href="{% url 'category_list' %}"><i class="fas fa-list"></i> List</a>
+        </div>
+      </div>
+
+      {% comment %}demo{% endcomment %}
+
+      {% comment %}demo{% endcomment %}
+
+      <a class="text-white bg-rose-600 hover:bg-gray-100 hover:text-rose-600 border-2 border-rose-600 rounded-md duration-300 px-4 py-2 " href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+
+    <button class="text-white hover:text-blue-400 ml-auto transition-colors focus:outline-none md:hidden" id="menu-toggle"><i class="fas fa-bars text-3xl"></i></button>
+    <script>
+      document.getElementById('menu-toggle').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    </script>
+  </div>
+</nav>
+
+<div class="mt-[2vh]">
+  <!-- Your first content goes here -->
+</div>
+
+<div class="md:hidden hidden bg-gray-700" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-2 sm:px-3 text-start">
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'home' %}">Home</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'event_create' %}">Create Event</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'dashboard' %}">Dashboard</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'participant_create' %}">Create Participant</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'participant_list' %}">Participant List</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'category_create' %}">Create Category</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'category_list' %}">Category List</a>
+        <a class="text-white hover:text-blue-400 transition-colors duration-300 block px-3 py-2 bg-gray-800 hover:bg-gray-700 border border-transparent hover:border-white" href="{% url 'dashboard' %}">Dashboard</a>
+    </div>
+</div>
+

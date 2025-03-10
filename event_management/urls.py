@@ -1,9 +1,9 @@
-
 from django.contrib import admin
-from django.urls import path, include
-from event.views import test
+from debug_toolbar.toolbar import debug_toolbar_urls
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('event/', include("event.urls"))
-]
+    path('', include('event.urls')),
+    
+]+ debug_toolbar_urls()
